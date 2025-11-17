@@ -169,10 +169,8 @@ const About = () => {
                   Web Development
                 </h5>
                 <p className="text-gray-300 leading-relaxed text-sm">
-                  I build responsive and modern web applications using the MERN stack.
-                  From elegant front-end design with React to efficient back-end development 
-                  with Node.js and MongoDB, I create comprehensive, scalable, and user-friendly 
-                  web solutions.
+                  I build responsive and modern web applications using the MERN stack, 
+                  creating comprehensive and scalable solutions.
                 </p>
               </motion.div>
             </motion.div>

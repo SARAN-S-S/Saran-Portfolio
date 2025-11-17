@@ -127,8 +127,8 @@ const Navbar = () => {
           : "bg-gradient-to-br from-slate-900/80 via-purple-900/20 to-blue-900/40 backdrop-blur-xl"
       }`}
     >
-      {/* CHANGED: max-w-7xl to max-w-6xl to match About page */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Main container with perfect alignment */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-3">
           {/* Enhanced Logo with creative design */}
           <motion.div
