@@ -1,68 +1,76 @@
-import React from "react";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { FaArrowUp } from "react-icons/fa";
 
 const Footer = () => {
-  // Smooth scroll function
-  const handleScroll = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  // Show/hide scroll to top button
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   };
 
   return (
-    <footer className="text-white py-8 px-[12vw] md:px-[7vw] lg:px-[20vw]">
-      <div className="container mx-auto text-center">
-        {/* Name / Logo */}
-        <h2 className="text-xl font-semibold text-purple-500">Tarun Kaushik</h2>
+    <>
+      {/* Scroll to Top Button - Responsive */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 bg-gradient-to-r from-purple-600 to-blue-500 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-110 z-50 ${
+          showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+        }`}
+        aria-label="Scroll to top"
+      >
+        <FaArrowUp className="text-sm sm:text-lg" />
+      </button>
 
-        {/* Navigation Links - Responsive */}
-        <nav className="flex flex-wrap justify-center space-x-4 sm:space-x-6 mt-4">
-          {[
-            { name: "About", id: "about" },
-            { name: "Skills", id: "skills" },
-            { name: "Experience", id: "experience" },
-            { name: "Projects", id: "projects" },
-            { name: "Education", id: "education" },
-          ].map((item, index) => (
-            <button
-              key={index}
-              onClick={() => handleScroll(item.id)}
-              className="hover:text-purple-500 text-sm sm:text-base my-1"
-            >
-              {item.name}
-            </button>
-          ))}
-        </nav>
-
-        {/* Social Media Icons - Responsive */}
-        <div className="flex flex-wrap justify-center space-x-4 mt-6">
-          {[
-            { icon: <FaFacebook />, link: "https://www.facebook.com/tarun.kaushik.3511041/" },
-            { icon: <FaTwitter />, link: "https://twitter.com/CodingMaster6?s=09" },
-            { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/tarun-kaushik-553b441a4" },
-            { icon: <FaInstagram />, link: "https://www.instagram.com/coding_.master/" },
-            { icon: <FaYoutube />, link: "https://www.youtube.com/codingmasteryt" },
-            
-          ].map((item, index) => (
-            <a
-              key={index}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xl hover:text-purple-500 transition-transform transform hover:scale-110"
-            >
-              {item.icon}
-            </a>
-          ))}
+      <footer className="bg-gradient-to-br from-gray-900 to-black text-white py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        
+        {/* Background Decoration */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-1/4 w-32 h-32 bg-blue-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-32 h-32 bg-purple-500 rounded-full blur-3xl"></div>
         </div>
 
-        {/* Copyright Text */}
-        <p className="text-sm text-gray-400 mt-6">
-          © 2025 Tarun Kaushik. All rights reserved.
-        </p>
-      </div>
-    </footer>
+        <div className="max-w-4xl mx-auto relative z-10">
+          {/* Motivational Quote */}
+          <div className="text-center mb-8">
+            <p className="text-gray-300 italic text-sm sm:text-base leading-relaxed">
+              "The only way to do great work is to love what you do. 
+              Every project is a new opportunity to learn, grow, and make an impact."
+            </p>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-gray-800 my-8"></div>
+
+          {/* Bottom Section - Centered */}
+          <div className="flex flex-col items-center justify-center text-center space-y-4">
+            {/* Copyright - Centered */}
+            <p className="text-sm text-gray-400">
+              © {currentYear} Saran. All rights reserved.
+            </p>
+            
+            {/* Additional Info */}
+            <p className="text-xs text-gray-500 max-w-md px-4">
+              Built with React & Tailwind CSS • Crafted with passion and attention to detail
+            </p>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 };
 
