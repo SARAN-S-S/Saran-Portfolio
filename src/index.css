@@ -12,6 +12,25 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Hide scrollbar but keep scrolling functionality */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+html, body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
 @layer utilities {
     .clip-path-custom {
       clip-path: polygon(0 0, 100% 0, 100% 98%, 75% 95%, 0 100%);
@@ -22,6 +41,4 @@ html {
     .clip-path-custom-3 {
         clip-path: polygon(0 0, 100% 0, 100% 98%, 75% 96%, 0 100%);
       }
-  }
-  
-
+}
