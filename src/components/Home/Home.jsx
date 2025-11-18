@@ -139,37 +139,39 @@ const Home = () => {
                 </h1>
               </motion.div>
               
-              {/* Enhanced Typing Effect */}
+              {/* Enhanced Typing Effect - RESPONSIVE FIX */}
               <motion.div 
-                className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6 lg:mb-8 text-gray-300 min-h-[60px] flex items-center justify-center lg:justify-start"
+                className="font-bold mb-6 lg:mb-8 text-gray-300 min-h-[60px] flex items-center justify-center lg:justify-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.6 }}
               >
-                <span className="text-white mr-3">I'm a </span>
-                <div className="inline-block">
-                  <ReactTypingEffect
-                    text={[
-                      'Aspiring Software Developer',
-                      'MERN Stack Developer',
-                      'Problem Solver',
-                      'Tech Enthusiast',
-                    ]}
-                    speed={80}
-                    eraseSpeed={40}
-                    typingDelay={800}
-                    eraseDelay={2500}
-                    cursorRenderer={(cursor) => (
-                      <span className="text-cyan-400 ml-1 font-bold">{cursor}</span>
-                    )}
-                    displayTextRenderer={(text, i) => {
-                      return (
-                        <span className="text-cyan-400 font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-                          {text}
-                        </span>
-                      );
-                    }}
-                  />
+                <div className="text-xl sm:text-2xl lg:text-3xl inline-flex flex-wrap items-center justify-center lg:justify-start gap-1">
+                  <span className="text-white whitespace-nowrap">I'm a</span>
+                  <div className="inline-block min-w-[200px] sm:min-w-[250px] text-center lg:text-left">
+                    <ReactTypingEffect
+                      text={[
+                        'Aspiring Software Developer',
+                        'MERN Stack Developer',
+                        'Problem Solver',
+                        'Tech Enthusiast',
+                      ]}
+                      speed={80}
+                      eraseSpeed={40}
+                      typingDelay={800}
+                      eraseDelay={2500}
+                      cursorRenderer={(cursor) => (
+                        <span className="text-cyan-400 ml-1 font-bold">{cursor}</span>
+                      )}
+                      displayTextRenderer={(text, i) => {
+                        return (
+                          <span className="text-cyan-400 font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+                            {text}
+                          </span>
+                        );
+                      }}
+                    />
+                  </div>
                 </div>
               </motion.div>
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -7,6 +7,9 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  
+  // Ref for the mobile menu container
+  const mobileMenuRef = useRef(null);
 
   // Enhanced scroll detection
   useEffect(() => {
@@ -17,6 +20,30 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Outside click detection to close mobile menu
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isOpen && 
+          mobileMenuRef.current && 
+          !mobileMenuRef.current.contains(event.target) &&
+          !event.target.closest('.mobile-menu-button')) {
+        setIsOpen(false);
+      }
+    };
+
+    // Add event listener when menu is open
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside);
+    }
+
+    // Cleanup
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [isOpen]);
 
   // Enhanced smooth scroll with better offset calculation
   const handleMenuItemClick = (sectionId) => {
@@ -259,13 +286,13 @@ const Navbar = () => {
 
           {/* Enhanced Mobile Menu Button - Smaller and better visibility */}
           <motion.div
-            className="lg:hidden flex items-center justify-center p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-purple-400/30 hover:border-purple-300/50 transition-all duration-300 group"
+            className="lg:hidden flex items-center justify-center p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-purple-400/30 hover:border-purple-300/50 transition-all duration-300 group mobile-menu-button"
             whileHover={{ scale: 1.05, background: "rgba(255,255,255,0.15)" }}
             whileTap={{ scale: 0.95 }}
           >
             <div 
               onClick={() => setIsOpen(!isOpen)}
-              className="relative"
+              className="relative mobile-menu-button"
             >
               <MenuIcon isOpen={isOpen} />
             </div>
@@ -288,6 +315,7 @@ const Navbar = () => {
               
               {/* Enhanced Mobile Menu Container - Decreased width and right aligned */}
               <motion.div
+                ref={mobileMenuRef}
                 variants={mobileMenuVariants}
                 initial="closed"
                 animate="open"

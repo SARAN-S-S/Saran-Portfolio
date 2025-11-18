@@ -34,52 +34,52 @@ const Skills = () => {
       title: "Programming Languages",
       icon: <VscCode className="text-xl" />,
       skills: [
-        { name: "C", icon: <SiC />, level: 85 }, // Advanced
-        { name: "C++", icon: <SiCplusplus />, level: 90 }, // Advanced
+        { name: "C", icon: <SiC />, level: 85 },
+        { name: "C++", icon: <SiCplusplus />, level: 90 },
       ]
     },
     {
       title: "Core Concepts",
       icon: <VscSymbolRuler className="text-xl" />,
       skills: [
-        { name: "OOPS", icon: <VscCode />, level: 90 }, // Advanced
-        { name: "DSA", icon: <VscCode />, level: 72 }, // Intermediate
+        { name: "OOPS", icon: <VscCode />, level: 90 },
+        { name: "DSA", icon: <VscCode />, level: 72 },
       ]
     },
     {
       title: "Frontend Technologies",
       icon: <VscGlobe className="text-xl" />,
       skills: [
-        { name: "HTML5", icon: <SiHtml5 />, level: 82 }, // Intermediate
-        { name: "CSS3", icon: <SiCss3 />, level: 80 }, // Intermediate
-        { name: "JavaScript", icon: <SiJavascript />, level: 55 }, // Beginner to Intermediate
-        { name: "React.js", icon: <SiReact />, level: 50 }, // Beginner to Intermediate
+        { name: "HTML5", icon: <SiHtml5 />, level: 82 },
+        { name: "CSS3", icon: <SiCss3 />, level: 80 },
+        { name: "JavaScript", icon: <SiJavascript />, level: 55 },
+        { name: "React.js", icon: <SiReact />, level: 50 },
       ]
     },
     {
       title: "Backend Technologies",
       icon: <VscServer className="text-xl" />,
       skills: [
-        { name: "Node.js", icon: <SiNodedotjs />, level: 50 }, // Beginner to Intermediate
-        { name: "Express.js", icon: <SiExpress />, level: 58 }, // Beginner to Intermediate
+        { name: "Node.js", icon: <SiNodedotjs />, level: 50 },
+        { name: "Express.js", icon: <SiExpress />, level: 58 },
       ]
     },
     {
       title: "Database",
       icon: <VscDatabase className="text-xl" />,
       skills: [
-        { name: "MongoDB", icon: <SiMongodb />, level: 50 }, // Beginner to Intermediate
-        { name: "SQL", icon: <SiMysql />, level: 80 }, // Intermediate
+        { name: "MongoDB", icon: <SiMongodb />, level: 50 },
+        { name: "SQL", icon: <SiMysql />, level: 80 },
       ]
     },
     {
       title: "Tools & Platforms",
       icon: <VscTools className="text-xl" />,
       skills: [
-        { name: "Git", icon: <SiGit />, level: 55 }, // Beginner to Intermediate
-        { name: "GitHub", icon: <SiGithub />, level: 75 }, // Intermediate
-        { name: "Figma", icon: <SiFigma />, level: 72 }, // Intermediate
-        { name: "Postman", icon: <SiPostman />, level: 60 }, // Beginner to Intermediate
+        { name: "Git", icon: <SiGit />, level: 55 },
+        { name: "GitHub", icon: <SiGithub />, level: 75 },
+        { name: "Figma", icon: <SiFigma />, level: 72 },
+        { name: "Postman", icon: <SiPostman />, level: 60 },
       ]
     }
   ];
@@ -161,17 +161,17 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="min-h-screen py-20 px-6 sm:px-8 lg:px-12 bg-gradient-to-br from-slate-900 via-purple-900/10 to-slate-900 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-purple-900/10 to-slate-900 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 sm:mb-20"
+          className="text-center mb-16"
         >
           <motion.h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -185,31 +185,27 @@ const Skills = () => {
             initial={{ width: 0 }}
             whileInView={{ width: 100 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="w-20 sm:w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full mb-4"
+            className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full mb-4"
           />
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ 
-              delay: 0.7, 
-              duration: 0.8,
-              ease: "easeOut"
-            }}
-            className="text-gray-300 mt-6 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed font-light"
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed"
           >
             Crafting digital experiences with modern technologies and best practices
           </motion.p>
         </motion.div>
 
-        {/* Skills Grid with Left-to-Right Motion */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        {/* Skills Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
           {skillCategories.map((category, index) => {
             const colors = categoryColors[index % categoryColors.length];
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ 
                   duration: 0.6, 
                   delay: index * 0.1,
@@ -268,7 +264,7 @@ const Skills = () => {
                             damping: 25
                           }
                         }}
-                        className={`relative flex items-center justify-between p-3 rounded-xl bg-gradient-to-r ${colors.skillBg} backdrop-blur-sm border-2 border-white/10 group/skill overflow-hidden transition-all duration-300 ${colors.skillHover}`}
+                        className={`relative flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl bg-gradient-to-r ${colors.skillBg} backdrop-blur-sm border-2 border-white/10 group/skill overflow-hidden transition-all duration-300 ${colors.skillHover}`}
                       >
                         {/* Subtle Background Gradient on Hover */}
                         <div className={`absolute inset-0 bg-gradient-to-r ${colors.level} opacity-0 group-hover/skill:opacity-5 transition-opacity duration-300 rounded-xl`}></div>
@@ -279,7 +275,7 @@ const Skills = () => {
                         </div>
 
                         {/* Skill Content */}
-                        <div className="flex items-center gap-4 relative z-10 flex-1">
+                        <div className="flex items-center gap-4 relative z-10 flex-1 min-w-0">
                           <motion.div 
                             className={`text-2xl p-2 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10 ${colors.accent} transition-all duration-300 group-hover/skill:bg-white/10 group-hover/skill:border-white/30 group-hover/skill:scale-110 group-hover/skill:shadow-md`}
                             whileHover={{ rotate: 10 }}
@@ -287,29 +283,30 @@ const Skills = () => {
                           >
                             {skill.icon}
                           </motion.div>
-                          <span className="text-white font-medium text-sm flex-1 transition-all duration-300 group-hover/skill:font-semibold group-hover/skill:tracking-wide">
+                          <span className="text-white font-medium text-sm flex-1 min-w-0 transition-all duration-300 group-hover/skill:font-semibold group-hover/skill:tracking-wide truncate">
                             {skill.name}
                           </span>
                         </div>
                         
                         {/* Enhanced Skill Level Indicator */}
-                        <div className="flex items-center gap-3 relative z-10 ml-4">
-                          <div className={`w-40 h-3 ${colors.progressBg} rounded-full overflow-hidden backdrop-blur-sm border-2 ${colors.progressBorder} shadow-inner group-hover/skill:border-white/30 transition-all duration-300`}>
-                            <motion.div
-                              initial={{ width: 0 }}
-                              whileInView={{ width: `${skill.level}%` }}
-                              transition={{ 
-                                delay: (index * 0.1) + (skillIndex * 0.05) + 0.5,
-                                duration: 1.2,
-                                ease: "easeOut"
-                              }}
-                              className={`h-full bg-gradient-to-r ${colors.level} rounded-full shadow-lg transition-all duration-300 group-hover/skill:shadow-md group-hover/skill:brightness-105`}
-                            />
+                        <div className="flex items-center gap-3 relative z-10 mt-3 sm:mt-0 w-full sm:w-auto">
+                          <div className="flex-1 sm:flex-none sm:w-32">
+                            <div className={`w-full h-3 ${colors.progressBg} rounded-full overflow-hidden backdrop-blur-sm border-2 ${colors.progressBorder} shadow-inner group-hover/skill:border-white/30 transition-all duration-300`}>
+                              <motion.div
+                                initial={{ width: 0 }}
+                                whileInView={{ width: `${skill.level}%` }}
+                                transition={{ 
+                                  delay: (index * 0.1) + (skillIndex * 0.05) + 0.5,
+                                  duration: 1.2,
+                                  ease: "easeOut"
+                                }}
+                                className={`h-full bg-gradient-to-r ${colors.level} rounded-full shadow-lg transition-all duration-300 group-hover/skill:shadow-md group-hover/skill:brightness-105`}
+                              />
+                            </div>
                           </div>
                           {/* Hidden Percentage - removed badge but kept for accessibility */}
                           <span className="sr-only">{skill.level}%</span>
                         </div>
-
                       </motion.div>
                     ))}
                   </div>
