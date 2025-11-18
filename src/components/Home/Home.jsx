@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactTypingEffect from 'react-typing-effect';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiMail, FiDownload, FiX } from 'react-icons/fi';
-import profileImage from '../../assets/profile.png';
+import { profileImage } from '../../constants';
 
 const Home = () => {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
