@@ -73,8 +73,8 @@ const Projects = () => {
       description: "A responsive and attractive portfolio showcasing my projects, skills, services, and profile.",
       fullDescription: "A responsive and modern portfolio website built with React, Tailwind CSS, and Framer Motion. It highlights my projects, skills, services, and personal information with smooth animations and a clean, attractive UI. Designed to offer a seamless browsing experience across devices with smooth interactions and a visually engaging layout.",
       image: portfolio,
-      demoLink: "https://myportfolio.vercel.app",
-      codeLink: "https://github.com/yourusername/portfolio",
+      demoLink: "https://saran-s-s.github.io/Saran-Portfolio/",
+      codeLink: "https://github.com/SARAN-S-S/Saran-Portfolio.git",
       technologies: ["React", "Tailwind CSS", "Framer Motion"]
     },
     {
@@ -600,66 +600,108 @@ const handleCodeClick = (project) => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/90 backdrop-blur-xl flex items-center justify-center z-[60] p-4"
           >
-            <motion.div
-              initial={{ scale: 0.5, opacity: 0, rotateY: 90 }}
-              animate={{ scale: 1, opacity: 1, rotateY: 0 }}
-              exit={{ scale: 0.5, opacity: 0, rotateY: -90 }}
-              transition={{ duration: 0.8, type: "spring" }}
-              className="relative"
-            >
-              {/* Portal Ring */}
+            {/* Centered Container */}
+            <div className="flex flex-col items-center justify-center w-full max-w-md mx-auto">
               <motion.div
-                animate={{ 
-                  rotateZ: 360,
-                  scale: [1, 1.1, 1],
-                }}
-                transition={{ 
-                  rotateZ: { duration: 3, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 2, repeat: Infinity }
-                }}
-                className="w-48 h-48 rounded-full border-4 border-cyan-400/50 border-t-cyan-300 border-b-cyan-300 relative"
+                initial={{ scale: 0.5, opacity: 0, rotateY: 90 }}
+                animate={{ scale: 1, opacity: 1, rotateY: 0 }}
+                exit={{ scale: 0.5, opacity: 0, rotateY: -90 }}
+                transition={{ duration: 0.8, type: "spring" }}
+                className="relative flex flex-col items-center justify-center"
               >
-                {/* Portal Core */}
+                {/* Portal Ring */}
                 <motion.div
-                  animate={{
-                    rotateZ: -360,
-                    scale: [0.8, 1, 0.8],
+                  animate={{ 
+                    rotateZ: 360,
+                    scale: [1, 1.1, 1],
                   }}
-                  transition={{
+                  transition={{ 
                     rotateZ: { duration: 3, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 1.5, repeat: Infinity }
+                    scale: { duration: 2, repeat: Infinity }
                   }}
-                  className="absolute inset-4 rounded-full bg-gradient-to-r from-cyan-400/20 to-emerald-400/20 backdrop-blur-sm border border-cyan-400/30"
-                />
-                
-                {/* Floating Particles */}
-                {[...Array(8)].map((_, i) => (
+                  className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full border-4 border-cyan-400/50 border-t-cyan-300 border-b-cyan-300 relative flex items-center justify-center"
+                >
+                  {/* Portal Core */}
                   <motion.div
-                    key={i}
-                    className="absolute w-2 h-2 bg-cyan-400 rounded-full"
-                    style={{
-                      left: `${50 + 40 * Math.cos((i * 45 * Math.PI) / 180)}%`,
-                      top: `${50 + 40 * Math.sin((i * 45 * Math.PI) / 180)}%`,
-                    }}
                     animate={{
-                      scale: [0, 1, 0],
-                      opacity: [0, 1, 0],
+                      rotateZ: -360,
+                      scale: [0.8, 1, 0.8],
                     }}
                     transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: i * 0.2,
+                      rotateZ: { duration: 3, repeat: Infinity, ease: "linear" },
+                      scale: { duration: 1.5, repeat: Infinity }
                     }}
+                    className="absolute inset-4 rounded-full bg-gradient-to-r from-cyan-400/20 to-emerald-400/20 backdrop-blur-sm border border-cyan-400/30"
                   />
-                ))}
+                  
+                  {/* Floating Particles */}
+                  {[...Array(8)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-2 h-2 bg-cyan-400 rounded-full"
+                      style={{
+                        left: `${50 + 35 * Math.cos((i * 45 * Math.PI) / 180)}%`,
+                        top: `${50 + 35 * Math.sin((i * 45 * Math.PI) / 180)}%`,
+                      }}
+                      animate={{
+                        scale: [0, 1, 0],
+                        opacity: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: i * 0.2,
+                      }}
+                    />
+                  ))}
+
+                  {/* Demo Icon in Center */}
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.1, 1],
+                      rotate: [0, 5, -5, 0],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                    }}
+                    className="absolute inset-0 flex items-center justify-center"
+                  >
+                    {/* You can replace this with a demo icon if you have one */}
+                    <div className="text-white text-3xl sm:text-4xl">🚀</div>
+                  </motion.div>
+                </motion.div>
+
+                {/* Connection Lines */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {[...Array(6)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-1 h-12 bg-gradient-to-b from-cyan-400 to-transparent"
+                      style={{
+                        transform: `rotate(${i * 60}deg)`,
+                        transformOrigin: 'bottom center',
+                      }}
+                      animate={{
+                        height: [0, 48, 0],
+                        opacity: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: i * 0.3,
+                      }}
+                    />
+                  ))}
+                </div>
               </motion.div>
 
-              {/* Content */}
+              {/* Text Content - Centered below the animation */}
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="text-center mt-8"
+                className="text-center mt-6 sm:mt-8 w-full"
               >
                 <motion.h3
                   animate={{ 
@@ -670,13 +712,34 @@ const handleCodeClick = (project) => {
                     ]
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="text-2xl font-bold text-cyan-300 mb-2"
+                  className="text-xl sm:text-2xl font-bold text-cyan-300 mb-2 sm:mb-3"
                 >
                   Entering Project Realm
                 </motion.h3>
-                <p className="text-cyan-100">Opening live demo portal...</p>
+                <p className="text-cyan-100 text-sm sm:text-base mb-4">
+                  Opening live demo portal...
+                </p>
+                
+                {/* Loading Dots */}
+                <div className="flex justify-center gap-3 sm:gap-4">
+                  {[...Array(3)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="w-2 h-2 sm:w-3 sm:h-3 bg-cyan-400 rounded-full"
+                      animate={{
+                        scale: [1, 1.5, 1],
+                        opacity: [0.5, 1, 0.5],
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        delay: i * 0.5,
+                      }}
+                    />
+                  ))}
+                </div>
               </motion.div>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
