@@ -36,7 +36,7 @@ const Home = () => {
   const handleDownload = () => {
     setIsDownloadModalOpen(true);
     setTimeout(() => {
-      window.open('https://drive.google.com/file/d/1QqC_rpWmxyWutBp2nTxEj1oJf2WjsyoH/view?usp=sharing', '_blank');
+      window.open('https://drive.google.com/file/d/1MkZaWMra837SvPlQpi1wp8--kGI5LuYs/view?usp=sharing', '_blank');
       setIsDownloadModalOpen(false);
     }, 1500);
   };
